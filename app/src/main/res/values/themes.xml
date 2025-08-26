@@ -1,9 +1,38 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.StepCounter" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.StepCounter" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Moru engelle: tüm ana renkleri bizim mavi palete bağla -->
+        <item name="colorPrimary">@color/blue_700</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <item name="colorSecondary">@color/blue_700</item>
+        <item name="colorTertiary">@color/blue_500</item>
+        <item name="android:statusBarColor">@color/blue_700</item>
+        <item name="android:navigationBarColor">@color/blue_700</item>
+
+        <!-- Material3'ün default mor butonlarını geçersiz kıl -->
+        <item name="materialButtonStyle">@style/App.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/App.Button.Outlined</item>
     </style>
 
-    <style name="Theme.StepCounter" parent="Base.Theme.StepCounter" />
+    <!-- Varsayılan “Contained” buton -->
+    <style name="App.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/blue_600</item>
+        <item name="rippleColor">@color/blue_200</item>
+        <item name="shapeAppearance">@style/App.Shape.Rounded</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Outlined buton -->
+    <style name="App.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/blue_200</item>
+        <item name="rippleColor">@color/blue_200</item>
+        <item name="shapeAppearance">@style/App.Shape.Rounded</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="App.Shape.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">14dp</item>
+    </style>
 </resources>

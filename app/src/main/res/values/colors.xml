@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue_700">#1565C0</color>   <!-- koyu mavi -->
+    <color name="blue_600">#1E88E5</color>   <!-- login butonu -->
+    <color name="blue_500">#2196F3</color>   <!-- degrade alt -->
+    <color name="blue_200">#90CAF9</color>   <!-- outline ve ripple -->
+    <color name="blue_60">#991E88E5</color>  <!-- %60 opak -->
+    <color name="blue_40">#661E88E5</color>
+    <color name="blue_12">#1F1E88E5</color>
+    <color name="blue_05">#0D1E88E5</color> <!-- sayfa arka planı -->
+
 </resources>

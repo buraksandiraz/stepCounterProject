@@ -1,56 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.WelcomeFragment">
+    android:fillViewport="true"
+    android:background="@color/blue_05">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="173dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="10dp"
-            android:text="Giriş"
-            app:layout_constraintEnd_toEndOf="parent"
+        <!-- Üst mavi header -->
+        <View
+            android:id="@+id/header"
+            android:layout_width="0dp"
+            android:layout_height="240dp"
+            android:background="@drawable/bg_top_wave"
+            app:cardCornerRadius="0dp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LoginPassword" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-        <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="wrap_content"
+
+        <!-- Logo + Başlık -->
+        <LinearLayout
+            android:id="@+id/logoWrap"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            app:layout_constraintTop_toTopOf="@id/header"
+            app:layout_constraintBottom_toBottomOf="@id/header"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="245dp" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <EditText
-            android:id="@+id/LoginPassword"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@android:drawable/sym_def_app_icon"
+                app:tint="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hoş Geldin"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+        <!-- Form Kartı -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardForm"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginTop="10dp"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardUseCompatPadding="true"
+            app:strokeColor="@color/blue_12"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/header"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="172dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:text="Kayıt ol"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Email -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="E-posta"
+                    app:boxStrokeColor="@color/blue_40"
+                    app:hintTextColor="@color/blue_60">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Şifre -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Şifre"
+                    android:layout_marginTop="12dp"
+                    app:endIconMode="password_toggle"
+                    app:boxStrokeColor="@color/blue_40"
+                    app:hintTextColor="@color/blue_60">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Hatırla + Şifremi unuttum -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="8dp">
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbRemember"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Beni hatırla"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/tvForgot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Şifremi unuttum"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue_700"/>
+                </LinearLayout>
+
+                <!-- Giriş Yap butonu -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="Giriş Yap"
+                    app:cornerRadius="14dp"
+                    app:backgroundTint="@color/blue_600"
+                    android:textColor="@color/white"/>
+
+
+                <!-- Google butonu -->
+                <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGoogle"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Google ile devam et"
+                app:strokeColor="@color/blue_200"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"
+                app:icon="@drawable/ic_google_g"
+                android:textColor="@color/blue_600"/>
+
+
+                <!-- Alt metin -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hesabın yok mu? "/>
+                    <TextView
+                        android:id="@+id/tvRegister"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kayıt ol"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue_700"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+</androidx.core.widget.NestedScrollView>
