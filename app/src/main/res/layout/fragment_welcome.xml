@@ -36,13 +36,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:src="@android:drawable/sym_def_app_icon"
-                app:tint="@android:color/white"/>
-
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
@@ -54,7 +47,7 @@
                 android:layout_marginTop="12dp"/>
         </LinearLayout>
 
-        <!-- Form Kartı -->
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardForm"
             android:layout_width="0dp"
@@ -74,7 +67,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Email -->
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilEmail"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -90,7 +83,7 @@
                         android:inputType="textEmailAddress"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Şifre -->
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilPassword"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -108,7 +101,7 @@
                         android:inputType="textPassword"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Hatırla + Şifremi unuttum -->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
